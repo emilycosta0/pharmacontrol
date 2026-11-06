@@ -19,7 +19,8 @@ def criar_tabelas():
         id INTEGER PRIMARY KEY AUTOINCREMENT,
         nome TEXT NOT NULL,
         preco REAL NOT NULL,
-        estoque INTEGER NOT NULL
+        estoque INTEGER NOT NULL,
+        data_vencimento TEXT NOT NULL
     )''')
 
     cursor.execute(''' CREATE TABLE IF NOT EXISTS vendas(

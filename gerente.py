@@ -20,31 +20,31 @@ def menu_gerente():
         print("12. Sair")
 
         opcao = input("Escolha uma opção: ")
-
-        if opcao == "1":
-            cadastrar_cliente()
-        elif opcao == "2":
-            consultar_clientes()
-        elif opcao == "3":
-            atualizar_cliente()
-        elif opcao == "4":
-            deletar_cliente()
-        elif opcao == "5":
-            cadastrar_produto()
-        elif opcao == "6":
-            listar_produtos()
-        elif opcao == "7":
-            alterar_produto()
-        elif opcao == "8":
-            deletar_produto()
-        elif opcao == "9":
-            registrar_venda()
-        elif opcao == "10":
-            consultar_historico_compras()
-        elif opcao == "11":
-            gerar_relatorios()
-        elif opcao == "12":
-            print("Saindo do menu do gerente!")
-            break
-        else:
-            print("Opção inválida!")
+        match opcao:
+            case "1":
+                cadastrar_cliente()
+            case "2":
+                consultar_clientes()
+            case "3":
+                atualizar_cliente()
+            case "4":
+                deletar_cliente()
+            case "5":
+                cadastrar_produto()
+            case "6":
+                listar_produtos()
+            case "7":
+                alterar_produto()
+            case "8":
+                deletar_produto()
+            case "9":
+                registrar_venda()
+            case "10":
+                consultar_historico_compras()
+            case "11":
+                gerar_relatorios()
+            case "12":
+                print("Saindo do menu do gerente!")
+                break
+            case _:
+                print("Opção inválida!")

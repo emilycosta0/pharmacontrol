@@ -9,8 +9,9 @@ def cadastrar_produto():
         nome = input("Digite o nome do medicamento: ")
         preco = float(input("Digite o preço: "))
         estoque = int(input("Digite a quantidade em estoque: "))
+        vencimento = input("Digite a data de vencimento: ")
 
-        cursor.execute( "INSERT INTO produto (nome, preco, estoque) VALUES (?, ?, ?)", (nome, preco, estoque))
+        cursor.execute( "INSERT INTO produto (nome, preco, estoque, data_vencimento) VALUES (?, ?, ?, ?)", (nome, preco, estoque, vencimento))
 
         conexao.commit()
         print("Produto cadastrado com sucesso!")
@@ -31,7 +32,7 @@ def listar_produtos():
         produtos = cursor.fetchall()
 
         for produto in produtos:
-            print( "ID:", produto[0],"| Nome:", produto[1],"| Preço: R$", produto[2],"| Estoque:", produto[3])
+            print( "ID:", produto[0],"| Nome:", produto[1],"| Preço: R$", produto[2],"| Estoque:", produto[3], "| Vencimento:", produto[4])
 
     finally:
         conexao.close()

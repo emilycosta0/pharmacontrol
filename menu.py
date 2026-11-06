@@ -11,12 +11,12 @@ print("2. Entrar como Gerente")
 print("3. Sair")
 
 opcao = input("Escolha uma opção: ")
-
-if opcao == "1":
-    menu_atendente()
-elif opcao == "2":
-    menu_gerente()
-elif opcao == "3":
-    print("Saindo do sistema. Até logo!")
-else:
-    print("Opção inválida!")
+match opcao:
+    case "1":
+        menu_atendente()
+    case "2":
+        menu_gerente()
+    case "3":
+        print("Saindo do sistema. Até logo!")
+    case _:
+        print("Opção inválida!")

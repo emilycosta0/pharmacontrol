@@ -16,23 +16,24 @@ def menu_atendente():
         print("8. Sair")
 
         opcao = input("Escolha uma opção: ")
-
-        if opcao == "1":
-            cadastrar_cliente()
-        elif opcao == "2":
-            consultar_clientes()
-        elif opcao == "3":
-            atualizar_cliente()
-        elif opcao == "4":
-            cadastrar_produto()
-        elif opcao == "5":
-            listar_produtos()
-        elif opcao == "6":
-            registrar_venda()
-        elif opcao == "7":
-            consultar_historico_compras()
-        elif opcao == "8":
-            print("Saindo do menu do atendente!")
-            break
-        else:
-            print("Opção inválida!")
+        match opcao:
+        
+            case "1":
+                cadastrar_cliente()
+            case "2":
+                consultar_clientes()
+            case "3":
+                atualizar_cliente()
+            case "4":
+                cadastrar_produto()
+            case "5":
+                listar_produtos()
+            case "6":
+                registrar_venda()
+            case "7":
+                consultar_historico_compras()
+            case "8":
+                print("Saindo do menu do atendente!")
+                break
+            case _:
+                print("Opção inválida!")
