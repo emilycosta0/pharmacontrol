@@ -4,7 +4,7 @@ from produto import listar_produtos
 
 
 def registrar_venda():
-    conexao = sqlite3.connect('farmacia_med.db')
+    conexao = sqlite3.connect('farma_aura.db')
     cursor = conexao.cursor()
 
     try:
@@ -68,7 +68,7 @@ def registrar_venda():
 
 
 def consultar_historico_compras():
-    conexao = sqlite3.connect('farmacia_med.db')
+    conexao = sqlite3.connect('farma_aura.db')
     cursor = conexao.cursor()
 
     try:
@@ -97,7 +97,7 @@ def consultar_historico_compras():
 
 
 def gerar_relatorios():
-    conexao = sqlite3.connect('farmacia_med.db')
+    conexao = sqlite3.connect('farma_aura.db')
     cursor = conexao.cursor()
 
     try:

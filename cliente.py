@@ -2,7 +2,7 @@ import sqlite3
 
 
 def cadastrar_cliente():
-    conexao = sqlite3.connect('farmacia_med.db')
+    conexao = sqlite3.connect('farma_aura.db')
     cursor = conexao.cursor()
 
     try:
@@ -26,7 +26,7 @@ def cadastrar_cliente():
 
 
 def consultar_clientes():
-    conexao = sqlite3.connect('farmacia_med.db')
+    conexao = sqlite3.connect('farma_aura.db')
     cursor = conexao.cursor()
 
     try:
@@ -41,7 +41,7 @@ def consultar_clientes():
 
 
 def atualizar_cliente():
-    conexao = sqlite3.connect('farmacia_med.db')
+    conexao = sqlite3.connect('farma_aura.db')
     cursor = conexao.cursor()
 
     try:
@@ -58,7 +58,7 @@ def atualizar_cliente():
 
 
 def deletar_cliente():
-    conexao = sqlite3.connect('farmacia_med.db')
+    conexao = sqlite3.connect('farma_aura.db')
     cursor = conexao.cursor()
 
     try:

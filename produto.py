@@ -1,4 +1,5 @@
 import sqlite3
+from datetime import datetime, timedelta
 
 
 def cadastrar_produto():
@@ -9,9 +10,10 @@ def cadastrar_produto():
         nome = input("Digite o nome do medicamento: ")
         preco = float(input("Digite o preço: "))
         estoque = int(input("Digite a quantidade em estoque: "))
-        vencimento = input("Digite a data de vencimento: ")
+        data_vencimento = (datetime.now() + timedelta(days=30)).strftime("%d-%m-%Y")
+        print(f"Data de vencimento gerada automaticamente: {data_vencimento}")
 
-        cursor.execute( "INSERT INTO produto (nome, preco, estoque, data_vencimento) VALUES (?, ?, ?, ?)", (nome, preco, estoque, vencimento))
+        cursor.execute( "INSERT INTO produto (nome, preco, estoque, data_vencimento) VALUES (?, ?, ?, ?)", (nome, preco, estoque, data_vencimento))
 
         conexao.commit()
         print("Produto cadastrado com sucesso!")
@@ -32,7 +34,40 @@ def listar_produtos():
         produtos = cursor.fetchall()
 
         for produto in produtos:
-            print( "ID:", produto[0],"| Nome:", produto[1],"| Preço: R$", produto[2],"| Estoque:", produto[3], "| Vencimento:", produto[4])
+            print( "ID:", produto[0],"| Nome:", produto[1],"| Preço: R$", produto[2],"| Estoque:", produto[3], "| Data_Vencimento:", produto[4])
+
+    finally:
+        conexao.close()
+
+def verificar_vencidos():
+    
+    conexao = sqlite3.connect("farmacia_nova.db")
+    cursor = conexao.cursor()
+
+    data_atual = datetime.now().strftime("%d-%m-%Y")
+    limite = (datetime.now() + timedelta(days=30)).strftime("%d-%m-%Y")
+    try:
+        cursor.execute(
+            """
+            SELECT id, nome, data_vencimento, estoque 
+            FROM produto 
+            WHERE data_vencimento <= ?
+            ORDER BY data_vencimento ASC
+        """,
+            (limite,),
+        )
+
+        produtos = cursor.fetchall()
+
+        print("\n--- ALERTA DE VENCIMENTO (Próximos 30 dias ou Vencidos) ---")
+        if not produtos:
+            print("Nenhum produto prestes a vencer ou vencido.")
+        else:
+            for p in produtos:
+                status = "VENCIDO!" if p[2] < data_atual else "Próximo do vencimento"
+                print(
+                    f"[{status}] ID: {p[0]} | Nome: {p[1]} | Validade: {p[2]} | Estoque: {p[3]}"
+                )
 
     finally:
         conexao.close()

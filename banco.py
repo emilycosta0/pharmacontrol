@@ -1,7 +1,7 @@
 import sqlite3
 
 def conectar():
-    return sqlite3.connect('farmacia_med.db')
+    return sqlite3.connect('farma_aura.db')
 
 def criar_tabelas():
     conexao = conectar()

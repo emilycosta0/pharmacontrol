@@ -1,8 +1,8 @@
 from cliente import cadastrar_cliente, consultar_clientes, atualizar_cliente, deletar_cliente
-from produto import cadastrar_produto, listar_produtos, alterar_produto, deletar_produto
+from produto import cadastrar_produto, listar_produtos, verificar_vencidos, alterar_produto, deletar_produto
 from venda import registrar_venda, consultar_historico_compras, gerar_relatorios
 from venda import consultar_historico_compras, gerar_relatorios, registrar_venda
-from vencimento import verificar_vencidos
+
 
 
 
