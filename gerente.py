@@ -1,6 +1,9 @@
 from cliente import cadastrar_cliente, consultar_clientes, atualizar_cliente, deletar_cliente
 from produto import cadastrar_produto, listar_produtos, alterar_produto, deletar_produto
 from venda import registrar_venda, consultar_historico_compras, gerar_relatorios
+from venda import consultar_historico_compras, gerar_relatorios, registrar_venda
+from vencimento import verificar_vencidos
+
 
 
 def menu_gerente():
@@ -17,7 +20,8 @@ def menu_gerente():
         print("9. Registrar Venda")
         print("10. Histórico de Compras")
         print("11. Relatório Financeiro")
-        print("12. Sair")
+        print("12. Verificar vencimento")
+        print("13. Sair")
 
         opcao = input("Escolha uma opção: ")
         match opcao:
@@ -44,6 +48,8 @@ def menu_gerente():
             case "11":
                 gerar_relatorios()
             case "12":
+                verificar_vencidos()
+            case "13":
                 print("Saindo do menu do gerente!")
                 break
             case _:

@@ -2,7 +2,7 @@ import sqlite3
 
 
 def cadastrar_produto():
-    conexao = sqlite3.connect("farmacia_nova.db")
+    conexao = sqlite3.connect('farmacia_med.db')
     cursor = conexao.cursor()
 
     try:
@@ -24,7 +24,7 @@ def cadastrar_produto():
 
 
 def listar_produtos():
-    conexao = sqlite3.connect("farmacia_nova.db")
+    conexao = sqlite3.connect('farmacia_med.db')
     cursor = conexao.cursor()
 
     try:
@@ -39,7 +39,7 @@ def listar_produtos():
 
 
 def alterar_produto():
-    conexao = sqlite3.connect("farmacia_nova.db")
+    conexao = sqlite3.connect('farmacia_med.db')
     cursor = conexao.cursor()
 
     try:
@@ -56,7 +56,7 @@ def alterar_produto():
 
 
 def atualizar_estoque():
-    conexao = sqlite3.connect("farmacia_nova.db")
+    conexao = sqlite3.connect('farmacia_med.db')
     cursor = conexao.cursor()
 
     try:
@@ -76,7 +76,7 @@ def atualizar_estoque():
 
 
 def alterar_preco():
-    conexao = sqlite3.connect("farmacia_nova.db")
+    conexao = sqlite3.connect('farmacia_med.db')
     cursor = conexao.cursor()
 
     try:
@@ -96,7 +96,7 @@ def alterar_preco():
 
 
 def deletar_produto():
-    conexao = sqlite3.connect("farmacia_nova.db")
+    conexao = sqlite3.connect('farmacia_med.db')
     cursor = conexao.cursor()
 
     try:
