@@ -32,5 +32,12 @@ def criar_tabelas():
         FOREIGN KEY (cliente_id) REFERENCES clientes(id),
         FOREIGN KEY (produto_id) REFERENCES produto(id)
     )''')
+
+    cursor.execute(''' CREATE TABLE IF NOT EXISTS gerente(
+                   id INTEGER PRIMARY KEY AUTOINCREMENT,
+                   nome_gerente TEXT NOT NULL)''')
+    cursor.execute('''CREATE TABLE IF NOT EXISTS atendente(
+                   id INTEGER PRIMARY KEY AUTOINCREMENT,
+                   nome_atendente TEXT NOT NULL)''')
     conexao.commit()
     conexao.close()

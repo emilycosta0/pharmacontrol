@@ -1,55 +1,65 @@
+import sqlite3
 from cliente import cadastrar_cliente, consultar_clientes, atualizar_cliente, deletar_cliente
 from produto import cadastrar_produto, listar_produtos, verificar_vencidos, alterar_produto, deletar_produto
 from venda import registrar_venda, consultar_historico_compras, gerar_relatorios
 from venda import consultar_historico_compras, gerar_relatorios, registrar_venda
 
-
-
+def cadastrar_gerente():
+    conexao = sqlite3.connect('farma_aura.db')
+    cursor = conexao.cursor()
+    
+    nome_gerente = input("Digite seu nome GERENTE: ")
+    cursor.execute("INSERT INTO gerente(nome_gerente) VALUES (?)",(nome_gerente,))
+    conexao.commit()
+    print("Gerente cadastrado com sucesso!")
 
 def menu_gerente():
     while True:
         print("\n--- MENU GERENTE ---")
-        print("1. Cadastrar Cliente")
-        print("2. Consultar Clientes")
-        print("3. Atualizar Cliente")
-        print("4. Deletar Cliente")
-        print("5. Cadastrar Produto")
-        print("6. Listar Produtos")
-        print("7. Atualizar Produto")
-        print("8. Deletar Produto")
-        print("9. Registrar Venda")
-        print("10. Histórico de Compras")
-        print("11. Relatório Financeiro")
-        print("12. Verificar vencimento")
-        print("13. Sair")
+        print("1. Nome do Gerente")
+        print("2. Cadastrar Cliente")
+        print("3. Consultar Clientes")
+        print("4. Atualizar Cliente")
+        print("5. Deletar Cliente")
+        print("6. Cadastrar Produto")
+        print("7. Listar Produtos")
+        print("8. Atualizar Produto")
+        print("9. Deletar Produto")
+        print("10. Registrar Venda")
+        print("11. Histórico de Compras")
+        print("12. Relatório Financeiro")
+        print("13. Verificar vencimento")
+        print("14. Sair")
 
         opcao = input("Escolha uma opção: ")
         match opcao:
             case "1":
-                cadastrar_cliente()
+                cadastrar_gerente()
             case "2":
-                consultar_clientes()
+                cadastrar_cliente()
             case "3":
-                atualizar_cliente()
+                consultar_clientes()
             case "4":
-                deletar_cliente()
+                atualizar_cliente()
             case "5":
-                cadastrar_produto()
+                deletar_cliente()
             case "6":
-                listar_produtos()
+                cadastrar_produto()
             case "7":
-                alterar_produto()
+                listar_produtos()
             case "8":
-                deletar_produto()
+                alterar_produto()
             case "9":
-                registrar_venda()
+                deletar_produto()
             case "10":
-                consultar_historico_compras()
+                registrar_venda()
             case "11":
-                gerar_relatorios()
+                consultar_historico_compras()
             case "12":
-                verificar_vencidos()
+                gerar_relatorios()
             case "13":
+                verificar_vencidos()
+            case "14":
                 print("Saindo do menu do gerente!")
                 break
             case _:
